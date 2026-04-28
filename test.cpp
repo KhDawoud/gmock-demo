@@ -28,3 +28,10 @@ TEST(UserRegistrationTest, ReturnsFalseWhenEmailFails) {
 
   EXPECT_FALSE(reg.registerUser("Bob", "bob@test.com"));
 }
+
+TEST(UserRegistrationTest, ReturnsFalseForInvalidEmail) {
+  MockEmailService mock;
+  UserRegistration reg(&mock);
+
+  EXPECT_FALSE(reg.registerUser("Khaled", "ke3dhiuh"));
+}
